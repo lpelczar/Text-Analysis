@@ -21,10 +21,23 @@ public class StatisticalAnalysis {
     }
 
     public int dictionarySize() {
-        Set<String> uniqueElements = new HashSet<>();
+        Set<String> set = new HashSet<>();
+        Set<String> duplicateSet = new HashSet<>();
+
         while (iterator.hasNext()) {
-            uniqueElements.add(iterator.next());
+            if (!set.add(iterator.next())) {
+                duplicateSet.add(iterator.next());
+            }
         }
-        return uniqueElements.size();
+        set.removeAll(duplicateSet);
+        return set.size();
+    }
+
+    public int size() {
+        Set<String> elements = new HashSet<>();
+        while (iterator.hasNext()) {
+            elements.add(iterator.next());
+        }
+        return elements.size();
     }
 }
