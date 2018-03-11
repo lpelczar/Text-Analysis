@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class CharIterator implements Iterator {
+public class CharIterator implements Iterator<String> {
 
     private FileContent fileContent;
 
@@ -12,7 +12,7 @@ public class CharIterator implements Iterator {
         return false;
     }
 
-    public Object next() {
+    public String next() {
         return null;
     }
 

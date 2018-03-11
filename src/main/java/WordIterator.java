@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class WordIterator implements Iterator {
+public class WordIterator implements Iterator<String> {
 
     private FileContent fileContent;
 
@@ -12,7 +12,7 @@ public class WordIterator implements Iterator {
         return false;
     }
 
-    public Object next() {
+    public String next() {
         return null;
     }
 
