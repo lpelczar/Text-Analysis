@@ -39,4 +39,8 @@ public class RootView {
     public void displayVowelsPercentage(double percentage) {
         System.out.println(String.format("vowels %%: %.2f", percentage));
     }
+
+    public void displayAToERatio(double ratio) {
+        System.out.println(String.format("'a:e count ratio' : %.2f", ratio));
+    }
 }

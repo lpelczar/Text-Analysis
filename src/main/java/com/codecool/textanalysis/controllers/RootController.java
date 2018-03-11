@@ -36,6 +36,7 @@ public class RootController {
         showHateCount(iterableText);
         showMusicCount(iterableText);
         showVowelsPercentage(iterableText);
+        showAToERatio(iterableText);
     }
 
     private void showFileName(String filename) {
@@ -74,5 +75,13 @@ public class RootController {
                 .countOf("a", "e", "i", "o", "u");
         double allCharacterQuantity = new StatisticalAnalysis(iterableText.charIterator()).size();
         rootView.displayVowelsPercentage((vowelsCount / allCharacterQuantity) * 100);
+    }
+
+    private void showAToERatio(IterableText iterableText) {
+        double aCount = new StatisticalAnalysis(iterableText.charIterator())
+                .countOf("a");
+        double eCount = new StatisticalAnalysis(iterableText.charIterator())
+                .countOf("e");
+        rootView.displayAToERatio(aCount / eCount);
     }
 }
