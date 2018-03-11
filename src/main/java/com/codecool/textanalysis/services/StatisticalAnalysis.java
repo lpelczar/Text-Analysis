@@ -1,6 +1,8 @@
 package com.codecool.textanalysis.services;
 
 import java.util.*;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 public class StatisticalAnalysis {
 
@@ -31,8 +33,27 @@ public class StatisticalAnalysis {
     public int size() {
         int totalNumber = 0;
         while (iterator.hasNext()) {
+            iterator.next();
             totalNumber++;
         }
         return totalNumber;
+    }
+
+    public Set<String> occurMoreThan(Integer n) {
+        Map<String, Integer> map = new HashMap<>();
+
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            if (!map.containsKey(element)) {
+                map.put(element, 1);
+            } else {
+                map.put(element, map.get(element) + 1);
+            }
+        }
+        
+        return map.entrySet().stream()
+                .filter(a -> a.getValue() > n)
+                .collect(Collectors.toMap(Entry::getKey, Entry::getValue))
+                .keySet();
     }
 }
