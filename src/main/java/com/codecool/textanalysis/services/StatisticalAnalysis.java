@@ -44,11 +44,7 @@ public class StatisticalAnalysis {
 
         while (iterator.hasNext()) {
             String element = iterator.next();
-            if (!map.containsKey(element)) {
-                map.put(element, 1);
-            } else {
-                map.put(element, map.get(element) + 1);
-            }
+            map.put(element, !map.containsKey(element) ? 1 : map.get(element) + 1);
         }
 
         return map.entrySet().stream()
