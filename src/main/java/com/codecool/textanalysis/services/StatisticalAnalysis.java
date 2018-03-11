@@ -50,7 +50,7 @@ public class StatisticalAnalysis {
                 map.put(element, map.get(element) + 1);
             }
         }
-        
+
         return map.entrySet().stream()
                 .filter(a -> a.getValue() > n)
                 .collect(Collectors.toMap(Entry::getKey, Entry::getValue))

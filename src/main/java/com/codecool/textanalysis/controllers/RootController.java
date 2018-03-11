@@ -23,7 +23,16 @@ public class RootController {
         }
 
         for (String arg : this.consoleArgs) {
-            //TODO 1 Handle analysis each file
+            IterableText iterableText = new FileContent(arg);
+            handleAnalysisAndDisplayResults(arg, new StatisticalAnalysis(iterableText.charIterator()),
+                    new StatisticalAnalysis(iterableText.wordIterator()));
         }
+    }
+
+    private void handleAnalysisAndDisplayResults(String filename, StatisticalAnalysis charAnalysis,
+                                                 StatisticalAnalysis wordAnalysis) {
+        rootView.displayFileName(filename);
+        rootView.displayCharCount(charAnalysis.size());
+        rootView.displayWordCount(wordAnalysis.size());
     }
 }
