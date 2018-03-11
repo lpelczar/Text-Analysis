@@ -22,7 +22,7 @@ public class RootView {
     }
 
     public void displayDictSize(int size) {
-        System.out.println("'Dict size: " + size);
+        System.out.println("Dict size: " + size);
     }
 
     public void displayMostUsedWords(Set<String> words) {

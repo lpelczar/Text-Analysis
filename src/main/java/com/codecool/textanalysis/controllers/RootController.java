@@ -89,10 +89,8 @@ public class RootController {
     }
 
     private void showAToERatio(IterableText iterableText) {
-        double aCount = new StatisticalAnalysis(iterableText.charIterator())
-                .countOf("a");
-        double eCount = new StatisticalAnalysis(iterableText.charIterator())
-                .countOf("e");
+        double aCount = new StatisticalAnalysis(iterableText.charIterator()).countOf("a");
+        double eCount = new StatisticalAnalysis(iterableText.charIterator()).countOf("e");
         rootView.displayAToERatio(aCount / eCount);
     }
 
