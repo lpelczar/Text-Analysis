@@ -53,4 +53,8 @@ public class RootView {
         map.forEach((key, value) -> System.out.print(String.format("[%s -> %.2f] ", key, value)));
         System.out.println();
     }
+
+    public void displayBenchmarkTime(double time) {
+        System.out.println(String.format("Benchmark time: %.2f secs", time));
+    }
 }

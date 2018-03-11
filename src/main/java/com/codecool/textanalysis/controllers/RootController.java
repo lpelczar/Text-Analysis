@@ -12,6 +12,7 @@ public class RootController {
 
     private String[] consoleArgs;
     private RootView rootView;
+    private long startingTime;
 
     public RootController (String[] consoleArgs, RootView rootView) {
         this.consoleArgs = consoleArgs;
@@ -23,11 +24,12 @@ public class RootController {
             rootView.displayNoFileProvidedMessage();
             return;
         }
-
+        this.startingTime = System.nanoTime();
         for (String arg : this.consoleArgs) {
             IterableText iterableText = new FileContent(arg);
             handleAnalysisAndDisplayResults(arg, iterableText);
         }
+        showBenchmark();
     }
 
     private void handleAnalysisAndDisplayResults(String filename, IterableText iterableText) {
@@ -103,5 +105,11 @@ public class RootController {
             map.put(Character.toString(ch), (characterCount / allCharacterQuantity) * 100);
         }
         rootView.displayPercentageOfAllLetters(map);
+    }
+
+    private void showBenchmark() {
+        long estimatedTime = System.nanoTime() - startingTime;
+        double time = (double)estimatedTime / 1000000000.0;
+        rootView.displayBenchmarkTime(time);
     }
 }
