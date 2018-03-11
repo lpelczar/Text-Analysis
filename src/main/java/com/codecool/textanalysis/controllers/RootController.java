@@ -38,7 +38,7 @@ public class RootController {
     private void checkIfFileExists(String filepath) {
         File f = new File(filepath);
         if (!(f.exists() && !f.isDirectory())) {
-            throw new IllegalArgumentException(filepath + " does not exist!");
+            throw new IllegalArgumentException(filepath + " file does not exist!");
         }
     }
 
@@ -119,5 +119,9 @@ public class RootController {
         long estimatedTime = System.nanoTime() - startingTime;
         double time = (double)estimatedTime / 1000000000.0;
         rootView.displayBenchmarkTime(time);
+    }
+
+    public void setConsoleArgs(String[] consoleArgs) {
+        this.consoleArgs = consoleArgs;
     }
 }
