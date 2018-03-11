@@ -18,12 +18,14 @@ public class CharIterator implements Iterator<String> {
         this.chars = getCharsFromFile();
     }
 
+    @Override
     public boolean hasNext() {
-        return false;
+        return index < chars.size();
     }
 
+    @Override
     public String next() {
-        return null;
+        return this.hasNext() ? chars.get(index++) : null;
     }
 
     private List<String> getCharsFromFile() {
