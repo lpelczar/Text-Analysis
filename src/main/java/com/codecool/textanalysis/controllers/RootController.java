@@ -38,5 +38,9 @@ public class RootController {
         rootView.displayLoveWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("love"));
         rootView.displayHateWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("hate"));
         rootView.displayMusicWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("music"));
+        double vowelsCount = new StatisticalAnalysis(iterableText.charIterator())
+                .countOf("a", "e", "i", "o", "u");
+        double allCharacterQuantity = new StatisticalAnalysis(iterableText.charIterator()).size();
+        rootView.displayVowelsPercentage((vowelsCount / allCharacterQuantity) * 100);
     }
 }

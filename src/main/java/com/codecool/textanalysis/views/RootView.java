@@ -35,4 +35,8 @@ public class RootView {
     public void displayMusicWordCount(int musicCount) {
         System.out.println("'music' count: " + musicCount);
     }
+
+    public void displayVowelsPercentage(double percentage) {
+        System.out.println(String.format("vowels %%: %.2f", percentage));
+    }
 }
