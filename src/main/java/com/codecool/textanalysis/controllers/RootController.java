@@ -5,6 +5,8 @@ import com.codecool.textanalysis.services.IterableText;
 import com.codecool.textanalysis.views.RootView;
 import com.codecool.textanalysis.services.StatisticalAnalysis;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,10 +28,18 @@ public class RootController {
         }
         this.startingTime = System.nanoTime();
         for (String arg : this.consoleArgs) {
+            checkIfFileExists(arg);
             IterableText iterableText = new FileContent(arg);
             handleAnalysisAndDisplayResults(arg, iterableText);
         }
         showBenchmark();
+    }
+
+    private void checkIfFileExists(String filepath) {
+        File f = new File(filepath);
+        if (!(f.exists() && !f.isDirectory())) {
+            throw new IllegalArgumentException(filepath + " does not exist!");
+        }
     }
 
     private void handleAnalysisAndDisplayResults(String filename, IterableText iterableText) {
