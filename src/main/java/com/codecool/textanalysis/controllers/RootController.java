@@ -28,16 +28,48 @@ public class RootController {
     }
 
     private void handleAnalysisAndDisplayResults(String filename, IterableText iterableText) {
-        double onePercent = 0.01;
+        showFileName(filename);
+        showAllCharactersCountInFile(iterableText);
+        showAllWordsCountInFile(iterableText);
+        showMostUsedWords(iterableText);
+        showLoveCount(iterableText);
+        showHateCount(iterableText);
+        showMusicCount(iterableText);
+        showVowelsPercentage(iterableText);
+    }
+
+    private void showFileName(String filename) {
         rootView.displayFileName(filename);
+    }
+
+    private void showAllCharactersCountInFile(IterableText iterableText) {
         rootView.displayCharCount(new StatisticalAnalysis(iterableText.charIterator()).size());
+    }
+
+    private void showAllWordsCountInFile(IterableText iterableText) {
         rootView.displayWordCount(new StatisticalAnalysis(iterableText.wordIterator()).size());
+    }
+
+    private void showMostUsedWords(IterableText iterableText) {
+        double onePercent = 0.01;
         Double onePercentOfAllWords = onePercent * new StatisticalAnalysis(iterableText.wordIterator()).size();
         rootView.displayMostUsedWords(new StatisticalAnalysis(iterableText.wordIterator())
                 .occurMoreThan(onePercentOfAllWords.intValue()));
+    }
+
+    private void showLoveCount(IterableText iterableText) {
         rootView.displayLoveWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("love"));
+    }
+
+    private void showHateCount(IterableText iterableText) {
         rootView.displayHateWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("hate"));
+    }
+
+    private void showMusicCount(IterableText iterableText) {
         rootView.displayMusicWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("music"));
+    }
+
+    private void showVowelsPercentage(IterableText iterableText) {
         double vowelsCount = new StatisticalAnalysis(iterableText.charIterator())
                 .countOf("a", "e", "i", "o", "u");
         double allCharacterQuantity = new StatisticalAnalysis(iterableText.charIterator()).size();
