@@ -4,6 +4,7 @@ import com.codecool.textanalysis.services.FileContent;
 import com.codecool.textanalysis.services.IterableText;
 import com.codecool.textanalysis.views.RootView;
 import com.codecool.textanalysis.services.StatisticalAnalysis;
+import com.sun.xml.internal.bind.v2.TODO;
 
 public class RootController {
 
@@ -22,8 +23,7 @@ public class RootController {
         }
 
         for (String arg : this.consoleArgs) {
-            IterableText iterableText = new FileContent(arg);
-            StatisticalAnalysis charAnalysis = new StatisticalAnalysis(iterableText.charIterator());
+            //TODO 1 Handle analysis each file
         }
     }
 }
