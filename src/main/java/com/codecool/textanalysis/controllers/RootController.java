@@ -34,5 +34,7 @@ public class RootController {
         rootView.displayFileName(filename);
         rootView.displayCharCount(charAnalysis.size());
         rootView.displayWordCount(wordAnalysis.size());
+        Double onePercentOfAllWords = 0.01 * wordAnalysis.size();
+        rootView.displayMostUsedWords(wordAnalysis.occurMoreThan(onePercentOfAllWords.intValue()));
     }
 }
