@@ -1,3 +1,10 @@
+package com.codecool.textanalysis.controllers;
+
+import com.codecool.textanalysis.services.FileContent;
+import com.codecool.textanalysis.services.IterableText;
+import com.codecool.textanalysis.views.RootView;
+import com.codecool.textanalysis.services.StatisticalAnalysis;
+
 public class RootController {
 
     private String[] consoleArgs;

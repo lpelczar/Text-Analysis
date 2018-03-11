@@ -1,3 +1,7 @@
+package com.codecool.textanalysis.services;
+
+import com.codecool.textanalysis.services.FileContent;
+
 import java.util.Iterator;
 
 public class WordIterator implements Iterator<String> {

@@ -1,3 +1,5 @@
+package com.codecool.textanalysis.services;
+
 import java.util.Iterator;
 
 public interface IterableText {
