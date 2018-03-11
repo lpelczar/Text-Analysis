@@ -12,6 +12,7 @@ public class WordIterator implements Iterator<String> {
 
     private FileContent fileContent;
     private List<String> words;
+    private int index;
 
     WordIterator(FileContent fileContent) {
         this.fileContent = fileContent;
@@ -19,11 +20,11 @@ public class WordIterator implements Iterator<String> {
     }
 
     public boolean hasNext() {
-        return false;
+        return index < words.size();
     }
 
     public String next() {
-        return null;
+        return this.hasNext() ? words.get(index++) : null;
     }
 
     private List<String> getWordsFromFile() {
