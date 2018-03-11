@@ -1,4 +1,12 @@
-package PACKAGE_NAME;
+import java.util.Iterator;
 
-public class CharIterator {
+public class CharIterator implements Iterator {
+
+    public boolean hasNext() {
+        return false;
+    }
+
+    public Object next() {
+        return null;
+    }
 }
