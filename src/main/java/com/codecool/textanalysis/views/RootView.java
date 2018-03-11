@@ -1,12 +1,11 @@
 package com.codecool.textanalysis.views;
 
-import java.util.List;
 import java.util.Set;
 
 public class RootView {
 
     public void displayNoFileProvidedMessage() {
-        System.out.println("You need to provide file in console argument like 'java com.codecool.textanalysis.main.Application filename.txt'");
+        System.out.println("You need to provide file in console argument e.g. 'java Application filename.txt'");
     }
 
     public void displayFileName(String filename) {
@@ -18,7 +17,7 @@ public class RootView {
     }
 
     public void displayWordCount(int size) {
-        System.out.println("Word count:" + size);
+        System.out.println("Word count: " + size);
     }
 
     public void displayMostUsedWords(Set<String> words) {

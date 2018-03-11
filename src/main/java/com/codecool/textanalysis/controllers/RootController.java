@@ -4,7 +4,6 @@ import com.codecool.textanalysis.services.FileContent;
 import com.codecool.textanalysis.services.IterableText;
 import com.codecool.textanalysis.views.RootView;
 import com.codecool.textanalysis.services.StatisticalAnalysis;
-import com.sun.xml.internal.bind.v2.TODO;
 
 public class RootController {
 
@@ -24,17 +23,17 @@ public class RootController {
 
         for (String arg : this.consoleArgs) {
             IterableText iterableText = new FileContent(arg);
-            handleAnalysisAndDisplayResults(arg, new StatisticalAnalysis(iterableText.charIterator()),
-                    new StatisticalAnalysis(iterableText.wordIterator()));
+            handleAnalysisAndDisplayResults(arg, iterableText);
         }
     }
 
-    private void handleAnalysisAndDisplayResults(String filename, StatisticalAnalysis charAnalysis,
-                                                 StatisticalAnalysis wordAnalysis) {
+    private void handleAnalysisAndDisplayResults(String filename, IterableText iterableText) {
+        double onePercent = 0.01;
         rootView.displayFileName(filename);
-        rootView.displayCharCount(charAnalysis.size());
-        rootView.displayWordCount(wordAnalysis.size());
-        Double onePercentOfAllWords = 0.01 * wordAnalysis.size();
-        rootView.displayMostUsedWords(wordAnalysis.occurMoreThan(onePercentOfAllWords.intValue()));
+        rootView.displayCharCount(new StatisticalAnalysis(iterableText.charIterator()).size());
+        rootView.displayWordCount(new StatisticalAnalysis(iterableText.wordIterator()).size());
+        Double onePercentOfAllWords = onePercent * new StatisticalAnalysis(iterableText.wordIterator()).size();
+        rootView.displayMostUsedWords(new StatisticalAnalysis(iterableText.wordIterator())
+                .occurMoreThan(onePercentOfAllWords.intValue()));
     }
 }
