@@ -9,11 +9,11 @@ public class FileContent implements IterableText {
     }
 
     public Iterator<String> charIterator() {
-        return null;
+        return new CharIterator(this);
     }
 
     public Iterator<String> wordIterator() {
-        return null;
+        return new WordIterator(this);
     }
 
     public String getFilename() {
