@@ -2,10 +2,10 @@ import java.util.Iterator;
 
 public class FileContent implements IterableText {
 
-    private String content;
+    private String filename;
 
-    public FileContent(String content) {
-        this.content = content;
+    public FileContent(String filename) {
+        this.filename = filename;
     }
 
     public Iterator<String> charIterator() {
@@ -17,6 +17,6 @@ public class FileContent implements IterableText {
     }
 
     public String getFilename() {
-        return null;
+        return filename;
     }
 }
