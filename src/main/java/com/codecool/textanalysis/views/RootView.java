@@ -1,5 +1,6 @@
 package com.codecool.textanalysis.views;
 
+import java.util.Map;
 import java.util.Set;
 
 public class RootView {
@@ -18,6 +19,10 @@ public class RootView {
 
     public void displayWordCount(int size) {
         System.out.println("Word count: " + size);
+    }
+
+    public void displayDictSize(int size) {
+        System.out.println("'Dict size: " + size);
     }
 
     public void displayMostUsedWords(Set<String> words) {
@@ -42,5 +47,10 @@ public class RootView {
 
     public void displayAToERatio(double ratio) {
         System.out.println(String.format("'a:e count ratio' : %.2f", ratio));
+    }
+
+    public void displayPercentageOfAllLetters(Map<String, Double> map) {
+        map.forEach((key, value) -> System.out.print(String.format("[%s -> %.2f] ", key, value)));
+        System.out.println();
     }
 }

@@ -5,6 +5,9 @@ import com.codecool.textanalysis.services.IterableText;
 import com.codecool.textanalysis.views.RootView;
 import com.codecool.textanalysis.services.StatisticalAnalysis;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RootController {
 
     private String[] consoleArgs;
@@ -31,12 +34,14 @@ public class RootController {
         showFileName(filename);
         showAllCharactersCountInFile(iterableText);
         showAllWordsCountInFile(iterableText);
+        showDifferentWordsUsedQuantity(iterableText);
         showMostUsedWords(iterableText);
         showLoveCount(iterableText);
         showHateCount(iterableText);
         showMusicCount(iterableText);
         showVowelsPercentage(iterableText);
         showAToERatio(iterableText);
+        showPercentageOfAllLetters(iterableText);
     }
 
     private void showFileName(String filename) {
@@ -49,6 +54,10 @@ public class RootController {
 
     private void showAllWordsCountInFile(IterableText iterableText) {
         rootView.displayWordCount(new StatisticalAnalysis(iterableText.wordIterator()).size());
+    }
+
+    private void showDifferentWordsUsedQuantity(IterableText iterableText) {
+        rootView.displayDictSize(new StatisticalAnalysis(iterableText.wordIterator()).dictionarySize());
     }
 
     private void showMostUsedWords(IterableText iterableText) {
@@ -83,5 +92,16 @@ public class RootController {
         double eCount = new StatisticalAnalysis(iterableText.charIterator())
                 .countOf("e");
         rootView.displayAToERatio(aCount / eCount);
+    }
+
+    private void showPercentageOfAllLetters(IterableText iterableText) {
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        double allCharacterQuantity = new StatisticalAnalysis(iterableText.charIterator()).size();
+        Map<String, Double> map = new HashMap<>();
+        for (char ch : alphabet) {
+            int characterCount = new StatisticalAnalysis(iterableText.charIterator()).countOf(Character.toString(ch));
+            map.put(Character.toString(ch), (characterCount / allCharacterQuantity) * 100);
+        }
+        rootView.displayPercentageOfAllLetters(map);
     }
 }
