@@ -19,6 +19,4 @@ public class WordIterator implements Iterator<String> {
     public String next() {
         return null;
     }
-
-    public void remove() {}
 }
