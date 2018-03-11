@@ -35,5 +35,8 @@ public class RootController {
         Double onePercentOfAllWords = onePercent * new StatisticalAnalysis(iterableText.wordIterator()).size();
         rootView.displayMostUsedWords(new StatisticalAnalysis(iterableText.wordIterator())
                 .occurMoreThan(onePercentOfAllWords.intValue()));
+        rootView.displayLoveWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("love"));
+        rootView.displayHateWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("hate"));
+        rootView.displayMusicWordCount(new StatisticalAnalysis(iterableText.wordIterator()).countOf("music"));
     }
 }

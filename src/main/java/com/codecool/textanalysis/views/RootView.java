@@ -23,4 +23,16 @@ public class RootView {
     public void displayMostUsedWords(Set<String> words) {
         System.out.println("Most used words (>1%): " + words);
     }
+
+    public void displayLoveWordCount(int loveCount) {
+        System.out.println("'love' count: " + loveCount);
+    }
+
+    public void displayHateWordCount(int hateCount) {
+        System.out.println("'hate' count: " + hateCount);
+    }
+
+    public void displayMusicWordCount(int musicCount) {
+        System.out.println("'music' count: " + musicCount);
+    }
 }
