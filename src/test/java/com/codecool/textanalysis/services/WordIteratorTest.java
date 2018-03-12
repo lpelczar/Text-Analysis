@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -21,19 +22,17 @@ class WordIteratorTest {
 
     @Test
     void whenInstantiatedThenAllWordsAreReadProperly() {
-        assertEquals(12, wordIterator.getWordsQuantity());
+        assertThat(wordIterator.getWordsQuantity()).isEqualTo(12);
     }
 
     @Test
     void whenHasNextCalledForFirst12TimesThenTrue() {
-        boolean[] expected = new boolean[12];
-        Arrays.fill(expected, true);
         boolean[] result = new boolean[12];
         for (int i = 0; i < 12; i++) {
             result[i] = wordIterator.hasNext();
             wordIterator.next();
         }
-        assertArrayEquals(result, expected);
+        assertThat(result).doesNotContain(false);
     }
 
     @Test
@@ -42,16 +41,15 @@ class WordIteratorTest {
             wordIterator.hasNext();
             wordIterator.next();
         }
-        assertFalse(wordIterator.hasNext());
+        assertThat(wordIterator.hasNext()).isFalse();
     }
 
     @Test
     void whenNextCalledThreeTimesThenReturnFirstThreeChars() {
-        String[] expected = {"this", "is", "a"};
         String[] result = new String[3];
         for (int i = 0; i < 3; i++) {
             result[i] = wordIterator.next();
         }
-        assertArrayEquals(expected, result);
+        assertThat(result).containsExactly("this", "is", "a");
     }
 }
