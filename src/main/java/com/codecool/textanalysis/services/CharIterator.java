@@ -49,4 +49,8 @@ public class CharIterator implements Iterator<String> {
         }
         return content;
     }
+
+    public int getCharsQuantity() {
+        return chars.size();
+    }
 }
