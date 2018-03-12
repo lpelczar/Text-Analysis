@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -21,19 +22,17 @@ class CharIteratorTest {
 
     @Test
     void whenInstantiatedThenAllCharactersAreReadProperly() {
-        assertEquals(58, charIterator.getCharsQuantity());
+        assertThat(charIterator.getCharsQuantity()).isEqualTo(58);
     }
 
     @Test
     void whenHasNextCalledForFirst58TimesThenTrue() {
-        boolean[] expected = new boolean[58];
-        Arrays.fill(expected, true);
         boolean[] result = new boolean[58];
         for (int i = 0; i < 58; i++) {
             result[i] = charIterator.hasNext();
             charIterator.next();
         }
-        assertArrayEquals(result, expected);
+        assertThat(result).doesNotContain(false);
     }
 
     @Test
@@ -42,16 +41,15 @@ class CharIteratorTest {
             charIterator.hasNext();
             charIterator.next();
         }
-        assertFalse(charIterator.hasNext());
+        assertThat(charIterator.hasNext()).isFalse();
     }
 
     @Test
     void whenNextCalledThreeTimesThenReturnFirstThreeChars() {
-        String[] expected = {"t", "h", "i"};
         String[] result = new String[3];
         for (int i = 0; i < 3; i++) {
             result[i] = charIterator.next();
         }
-        assertArrayEquals(expected, result);
+        assertThat(result).containsExactly("t", "h", "i");
     }
 }
