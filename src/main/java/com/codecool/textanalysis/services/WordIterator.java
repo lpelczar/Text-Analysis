@@ -42,4 +42,8 @@ public class WordIterator implements Iterator<String> {
         }
         return content;
     }
+
+    public int getWordsQuantity() {
+        return words.size();
+    }
 }
