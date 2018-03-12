@@ -23,4 +23,9 @@ class StatisticalAnalysisTest {
     void whenCountOfCalledWithMoreThanOneElementsThenReturnCorrectOccurrences() {
         assertThat(statisticalAnalysis.countOf("a", "e")).isEqualTo(10);
     }
+
+    @Test
+    void whenDictionarySizeThenReturnSizeOfUniqueElements() {
+        assertThat(statisticalAnalysis.dictionarySize()).isEqualTo(18);
+    }
 }
