@@ -7,6 +7,7 @@ import com.codecool.textanalysis.services.StatisticalAnalysis;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -119,9 +120,5 @@ public class RootController {
         long estimatedTime = System.nanoTime() - startingTime;
         double time = (double)estimatedTime / 1000000000.0;
         rootView.displayBenchmarkTime(time);
-    }
-
-    public void setConsoleArgs(String[] consoleArgs) {
-        this.consoleArgs = consoleArgs;
     }
 }
