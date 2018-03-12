@@ -44,4 +44,14 @@ class WordIteratorTest {
         }
         assertFalse(wordIterator.hasNext());
     }
+
+    @Test
+    void whenNextCalledThreeTimesThenReturnFirstThreeChars() {
+        String[] expected = {"this", "is", "a"};
+        String[] result = new String[3];
+        for (int i = 0; i < 3; i++) {
+            result[i] = wordIterator.next();
+        }
+        assertArrayEquals(expected, result);
+    }
 }
