@@ -25,23 +25,33 @@ class CharIteratorTest {
     }
 
     @Test
-    void whenHasNextForFirst58TimesThenTrue() {
+    void whenHasNextCalledForFirst58TimesThenTrue() {
+        boolean[] expected = new boolean[58];
+        Arrays.fill(expected, true);
         boolean[] result = new boolean[58];
         for (int i = 0; i < 58; i++) {
             result[i] = charIterator.hasNext();
             charIterator.next();
         }
-        boolean[] expected = new boolean[58];
-        Arrays.fill(expected, true);
         assertArrayEquals(result, expected);
     }
 
     @Test
-    void whenHasNext59TimeThenFalse() {
+    void whenHasNextCalled59TimeThenFalse() {
         for (int i = 0; i < 58; i++) {
             charIterator.hasNext();
             charIterator.next();
         }
         assertFalse(charIterator.hasNext());
+    }
+
+    @Test
+    void whenNextCalledThreeTimesThenReturnFirstThreeChars() {
+        String[] expected = {"t", "h", "i"};
+        String[] result = new String[3];
+        for (int i = 0; i < 3; i++) {
+            result[i] = charIterator.next();
+        }
+        assertArrayEquals(expected, result);
     }
 }
