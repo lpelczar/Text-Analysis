@@ -3,6 +3,11 @@ package com.codecool.textanalysis.services;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class StatisticalAnalysisTest {
@@ -32,5 +37,11 @@ class StatisticalAnalysisTest {
     @Test
     void whenSizeThenReturnTotalNumberOfElements() {
         assertThat(statisticalAnalysis.size()).isEqualTo(58);
+    }
+
+    @Test
+    void whenOccurMoreThan1CalledThenReturnCorrectElements() {
+        Set<String> result = new HashSet<>(Arrays.asList("r", "s", "t", "e", "f", "g", "h", "i", "m", "n", "o"));
+        assertThat(statisticalAnalysis.occurMoreThan(1)).isEqualTo(result);
     }
 }
