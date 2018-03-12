@@ -3,9 +3,12 @@ package com.codecool.textanalysis.services;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class WordIteratorTest {
+class WordIteratorTest {
 
     private WordIterator wordIterator;
 
@@ -18,5 +21,17 @@ public class WordIteratorTest {
     @Test
     void whenInstantiatedThenAllWordsAreReadProperly() {
         assertEquals(12, wordIterator.getWordsQuantity());
+    }
+
+    @Test
+    void whenHasNextCalledForFirst12TimesThenTrue() {
+        boolean[] expected = new boolean[12];
+        Arrays.fill(expected, true);
+        boolean[] result = new boolean[12];
+        for (int i = 0; i < 12; i++) {
+            result[i] = wordIterator.hasNext();
+            wordIterator.next();
+        }
+        assertArrayEquals(result, expected);
     }
 }
