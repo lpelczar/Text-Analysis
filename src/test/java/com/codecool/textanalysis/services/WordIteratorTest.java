@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class WordIteratorTest {
 
@@ -33,5 +34,14 @@ class WordIteratorTest {
             wordIterator.next();
         }
         assertArrayEquals(result, expected);
+    }
+
+    @Test
+    void whenHasNextCalled13TimeThenFalse() {
+        for (int i = 0; i < 13; i++) {
+            wordIterator.hasNext();
+            wordIterator.next();
+        }
+        assertFalse(wordIterator.hasNext());
     }
 }
