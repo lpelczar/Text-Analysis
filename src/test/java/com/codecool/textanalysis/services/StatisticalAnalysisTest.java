@@ -28,4 +28,9 @@ class StatisticalAnalysisTest {
     void whenDictionarySizeThenReturnSizeOfUniqueElements() {
         assertThat(statisticalAnalysis.dictionarySize()).isEqualTo(18);
     }
+
+    @Test
+    void whenSizeThenReturnTotalNumberOfElements() {
+        assertThat(statisticalAnalysis.size()).isEqualTo(58);
+    }
 }
