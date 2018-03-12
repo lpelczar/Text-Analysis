@@ -18,4 +18,9 @@ class StatisticalAnalysisTest {
     void whenCountOfCalledWithOneElementThenReturnCorrectOccurrences() {
         assertThat(statisticalAnalysis.countOf("e")).isEqualTo(9);
     }
+
+    @Test
+    void whenCountOfCalledWithMoreThanOneElementsThenReturnCorrectOccurrences() {
+        assertThat(statisticalAnalysis.countOf("a", "e")).isEqualTo(10);
+    }
 }
