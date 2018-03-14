@@ -29,7 +29,7 @@ public class WordIterator implements Iterator<String> {
 
     private List<String> getWordsFromFile() {
         String fileContent = getFileContent(this.fileContent.getFilename());
-        String[] words = fileContent.split("\\s+");
+        String[] words = fileContent.trim().split("\\s+");
         return Arrays.stream(words).map(String::toLowerCase).collect(Collectors.toList());
     }
 
