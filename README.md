@@ -8,7 +8,7 @@ The goal is to implement a tool for lexical analysis of text data and write test
 
 ## Description
 
-![c1](http://i66.tinypic.com/5ulm5c.png)
+![c1](https://raw.github.com/lpelczar/Text-Analysis-AssertJ/master/UML.png)
 
 Classes to implement:
 
